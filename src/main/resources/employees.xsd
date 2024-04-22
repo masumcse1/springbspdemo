@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://com.springbootsoap.allapis"
+	targetNamespace="http://com.springbootsoap.allapis"
+	elementFormDefault="qualified">
+
+
+	<xs:complexType name="employeeinfo">
+		<xs:sequence>
+			<xs:element name="employeeid" type="xs:long" />
+			<xs:element name="name" type="xs:string" />
+			<xs:element name="department" type="xs:string" />
+			<xs:element name="phone" type="xs:string" />
+			<xs:element name="address" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="servicestatus">
+		<xs:sequence>
+			<xs:element name="status" type="xs:string" />
+			<xs:element name="message" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<!-- save -->
+
+	<xs:element name="addEmployeeRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="employeeinfo" type="tns:employeeinfo" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="addEmployeeResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="servicestatus" type="tns:servicestatus" />
+				<xs:element name="employeeinfo" type="tns:employeeinfo" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<!-- Find by name -->
+	<xs:element name="getEmployeeByIDRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="employeeid" type="xs:long" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getEmployeeByIDResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="employeeinfo" type="tns:employeeinfo" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>
